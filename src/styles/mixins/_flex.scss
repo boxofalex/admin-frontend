@@ -1,0 +1,59 @@
+/**
+$flow: <row | row-reverse | column | column-reverse> || <nowrap | wrap | wrap-reverse> = row nowrap
+$justifyContent: flex-start | flex-end | center | space-between | space-around | space-evenly = flex-start
+$alignContent: flex-start | flex-end | center | space-between | space-around | stretch = stretch
+$alignItems: flex-start | flex-end | center | baseline | stretch = stretch
+ */
+@mixin flexContainer(
+  $flow: row nowrap,
+  $justifyContent: flex-start,
+  $alignItems: stretch,
+  $alignContent: stretch
+) {
+  display: flex;
+  @if ($flow != row nowrap) {
+    flex-flow: $flow;
+  }
+  @if ($justifyContent != flex-start) {
+    justify-content: $justifyContent;
+  }
+  @if ($alignItems != stretch) {
+    align-items: $alignItems;
+  }
+  @if ($alignContent != stretch) {
+    align-content: $alignContent;
+  }
+}
+
+@mixin hvCenteredBlock($direction: row) {
+  @include flexContainer(#{$direction} nowrap, center, center);
+}
+
+@mixin hvStretchedBlock($direction: row) {
+  @include flexContainer(#{$direction} nowrap, stretch, stretch);
+}
+
+@mixin horizontalCentered($align: flex-start) {
+  @include flexContainer(row nowrap, center, #{$align});
+}
+
+@mixin verticalCentered($align: flex-start) {
+  @include flexContainer(column nowrap, center, #{$align});
+}
+
+/**
+$flex: none | [ <'flex-grow': number = 0> <'flex-shrink' number = 1>? || <'flex-basis': <length> | auto> = 0 1 auto ]
+$alignSelf: auto | flex-start | flex-end | center | baseline | stretch = auto
+$alignSelf: number = 0
+ */
+@mixin flexItem($flex: 0 1 auto, $alignSelf: auto, $order: 0) {
+  @if ($flex != 0 1 auto) {
+    flex: $flex;
+  }
+  @if ($alignSelf != auto) {
+    align-self: $alignSelf;
+  }
+  @if ($order != 0) {
+    order: $order;
+  }
+}
