@@ -1,5 +1,48 @@
-.container {
+@import "~src/variables&mixins.scss";
+
+.menu {
   height: 100%;
-  padding: 70px 0 0 0;
-  background-color: yellowgreen;
+  padding: 5rem 0 3rem 0;
+  overflow-y: auto;
+  position: relative;
+  background-color: $mainWhite;
+
+  &-item {
+    @include flexContainer(row nowrap, flex-start, center);
+    cursor: pointer;
+    margin: 0 0.25rem 0.25rem 0.25rem;
+    border: 0.11rem solid $mainPrimary;
+    border-radius: 0.25rem;
+
+    &__icon {
+      @include btnSize(2.22rem, 2.22rem, 2.22rem);
+      transition: all 0.3s ease;
+
+      &--rotated {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &__title {
+      width: 0;
+      height: 0;
+      display: inline-block;
+      transition: all 0.3s ease, opacity 0s ease;
+      opacity: 0;
+
+      &--full {
+        width: 10rem;
+        height: auto;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.expansion-toggler {
+  position: absolute;
+  bottom: 0.3rem;
+  left: 0.25rem;
+  margin: 0;
+  border: none;
 }

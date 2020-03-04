@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
+import { SharedModule } from '@shared/shared.module';
 
 const components = [
   HeaderComponent,
@@ -13,7 +13,7 @@ const components = [
     ...components,
   ],
   imports: [
-    CommonModule
+    SharedModule,
   ],
   exports: [
     ...components,

@@ -1,9 +1,10 @@
-<app-header></app-header>
+<app-header class="shadow-2"></app-header>
 <main>
-  <div class="main-menu">
+  <div class="main-menu"
+    [ngClass]="{'main-menu--fixed': mainMenuMode === 'fixed', 'shadow-2' : mainMenuMode === 'over'}">
     <app-main-menu></app-main-menu>
   </div>
-  <div class="page">
+  <div class="page" [ngClass]="{'page--fixed': mainMenuMode === 'over'}">
     <router-outlet></router-outlet>
   </div>
 </main>

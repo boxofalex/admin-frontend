@@ -1,1 +1,16 @@
-<div class="container">main-menu works!</div>
+<div class="menu" (mouseenter)="toggleMainMenuState()" (mouseleave)="toggleMainMenuState()">
+  <div *ngIf="menuData$ | async as menuData">
+    <div class="menu-item" *ngFor="let menuItem of menuData" (click)="goToLink(menuItem?.link)">
+      <button class="menu-item__icon" mat-icon-button [disableRipple]="true">
+        <mat-icon size="1.2" [svgIcon]="menuItem?.icon"></mat-icon>
+      </button>
+      <span class="menu-item__title" [ngClass]="{'menu-item__title--full' : isMenuOpened}">{{menuItem?.title}}</span>
+    </div>
+    <div class="menu-item expansion-toggler" (click)="toggleMainMenuMode()">
+      <button class="menu-item__icon" mat-icon-button [ngClass]="{'menu-item__icon--rotated': menuMode === 'fixed'}"
+        [disableRipple]="true">
+        <mat-icon size="1.2" [svgIcon]="'double_arrow'"></mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

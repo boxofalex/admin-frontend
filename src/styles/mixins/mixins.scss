@@ -1,0 +1,8 @@
+@import "./flex";
+@import "./responsive";
+
+@mixin btnSize($width: auto, $heigth: auto, $lineHeight: auto) {
+  width: $width;
+  height: $heigth;
+  line-height: $lineHeight;
+}

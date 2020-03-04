@@ -1,0 +1,33 @@
+$iconMinSize: 0.375;
+$iconMaxSize: 12.5;
+$iconSizes: (0.5, 0.75, 1, 1.125, 1.25, 1.5, 1.75, 2);
+
+@mixin cgMatIconSize($size) {
+  width: #{$size}rem;
+  height: #{$size}rem;
+  min-width: #{$size}rem;
+  min-height: #{$size}rem;
+  max-width: #{$size}rem;
+  max-height: #{$size}rem;
+  font-size: #{$size}rem;
+  line-height: #{$size}rem !important;
+}
+
+.mat-icon,
+.md-icon {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  @if (length($iconSizes) > 0) {
+    @each $size in $iconSizes {
+      &[size="#{$size}"] {
+        @include cgMatIconSize($size);
+      }
+    }
+  } @else {
+    @for $i from round($iconMinSize / 2) to round($iconMaxSize / 2) {
+      $size: $i * 2;
+      &[size="#{$size}"] {
+        @include cgMatIconSize($size);
+      }
+    }
+  }
+}

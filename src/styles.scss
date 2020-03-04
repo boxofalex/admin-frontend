@@ -1,4 +1,8 @@
 @import "~normalize-scss/sass/normalize";
+@import "~src/variables&mixins.scss";
 @include normalize();
+@import "styles/theme";
 @import "styles/fonts";
 @import "styles/common";
+@import "styles/shadows";
+@import "styles/material/material";
