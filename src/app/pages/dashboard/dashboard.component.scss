@@ -1,0 +1,51 @@
+@import "~src/variables&mixins.scss";
+
+.page {
+  &-container {
+    padding: 1rem;
+    height: 100%;
+  }
+  &-title {
+    @include flexContainer(row nowrap, center, center);
+    font-size: 1.4rem;
+    height: 2.5rem;
+    margin: 0 0 1.5rem 0;
+  }
+  &-body {
+    height: calc(100% - 4rem);
+    overflow-y: auto;
+    @include flexContainer(row nowrap, space-between, flex-start);
+  }
+}
+
+.blocks {
+  &-container {
+    height: 100%;
+    width: 49%;
+  }
+}
+
+.add-element {
+  @include flexContainer(column nowrap, center, center);
+  padding: 1rem 0;
+  border: 0.3rem dashed $mainAccent;
+  margin: 1rem 0;
+  background-color: $mainWhite;
+  height: 8rem;
+
+  &__title {
+    font-size: 1.2rem;
+    color: $mainAccent;
+  }
+
+  &__btn {
+    @include btnSize(5rem, 5rem, 5rem);
+    color: $mainAccent;
+  }
+
+  &__placeholder {
+    height: 8rem;
+    background-color: rgba($mainBlack, 0.2);
+    border: 0.3rem dashed rgba($mainBlack, 0.5);
+  }
+}

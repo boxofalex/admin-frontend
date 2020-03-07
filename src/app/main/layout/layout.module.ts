@@ -7,12 +7,12 @@ import { AccountMenuComponent } from './account-menu/account-menu.component';
 const components = [
   HeaderComponent,
   MainMenuComponent,
+  AccountMenuComponent,
 ];
 
 @NgModule({
   declarations: [
     ...components,
-    AccountMenuComponent,
   ],
   imports: [
     SharedModule,

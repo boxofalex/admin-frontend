@@ -8,6 +8,7 @@ import { MaterialIconsService } from '@shared/material/material-icons/material-i
 import { BASE_ICONS_LIST } from '@shared/material/material-icons/base-icons-list';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '@shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SharedModule } from '@shared/shared.module';
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

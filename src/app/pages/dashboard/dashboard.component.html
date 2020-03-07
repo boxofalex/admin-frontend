@@ -1,4 +1,26 @@
-<div>dashboard works!</div>
-<button mat-raised-button color="primary">Primary</button>
-<button mat-raised-button color="accent">Accent</button>
-<button mat-raised-button color="warn">Warn</button>
+<div class="page-container">
+  <div class="page-title">
+    <span>
+      Статистика #1
+    </span>
+  </div>
+  <div class="page-body" cdkDropListGroup>
+    <div class="blocks-container" cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="leftColumnData">
+      <div class="add-element" *ngFor="let item of leftColumnData" [cdkDragData]="item" cdkDrag>
+        <div class="add-element__placeholder" *cdkDragPlaceholder></div>
+        <button class="add-element__btn" mat-icon-button disableRipple (click)="openCreateBlockModal()">
+          <mat-icon size="4" [svgIcon]="'add_circle'"></mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="blocks-container" cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="rightColumnData">
+      <div class="add-element" *ngFor="let item of rightColumnData" [cdkDragData]="item" cdkDrag>
+        <div class="add-element__placeholder" *cdkDragPlaceholder></div>
+        <button class="add-element__btn" mat-icon-button disableRipple (click)="openCreateBlockModal()">
+          <mat-icon size="4" [svgIcon]="'add_circle'"></mat-icon>
+        </button>
+        <span class="add-element__title"> Добавить блок</span>
+      </div>
+    </div>
+  </div>
+</div>
