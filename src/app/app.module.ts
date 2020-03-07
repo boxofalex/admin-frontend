@@ -7,6 +7,7 @@ import localeRu from '@angular/common/locales/ru';
 import { MaterialIconsService } from '@shared/material/material-icons/material-icons.service';
 import { BASE_ICONS_LIST } from '@shared/material/material-icons/base-icons-list';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

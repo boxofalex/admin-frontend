@@ -1,4 +1,29 @@
-.container {
-  background-color: lightblue;
-  height: 4rem;
+@import "~src/variables&mixins.scss";
+
+.header {
+  background-color: $mainPrimary;
+  height: 3rem;
+  padding: 0 1rem 0 3rem;
+  color: $mainWhite;
+  @include flexContainer(row nowrap, space-between, center);
+}
+
+.account {
+  &-btn {
+    @include btnSize(2rem, 2rem, 2rem);
+    margin: 0 0.8rem 0 0;
+  }
+}
+
+.logout-btn {
+  @include btnSize(auto, 2rem, 2rem);
+  padding: 0 8px;
+  background-color: $lightPrimary;
+  color: $mainWhite;
+
+  &__title {
+  }
+
+  &__icon {
+  }
 }

@@ -1,1 +1,14 @@
-<header class="container">header works!</header>
+<header class="header">
+  <span>КОРПОРАТИВНЫЙ ПОРТАЛ</span>
+  <div class="account">
+    <button class="account-btn" mat-icon-button disableRipple (click)="openAccountMenu(accountBtn)" #accountBtn>
+      <mat-icon size="2" [svgIcon]="'account_circle'"></mat-icon>
+    </button>
+    <button class="logout-btn" mat-flat-button>
+      <span class="logout-btn__title">
+        Выйти
+      </span>
+      <mat-icon class="logout-btn__icon" size="1" [svgIcon]="'arrow_forward'"></mat-icon>
+    </button>
+  </div>
+</header>

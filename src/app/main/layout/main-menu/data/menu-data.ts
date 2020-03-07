@@ -1,7 +1,7 @@
 export const menuData = [
   {
-    title: 'Dashboard',
-    description: 'Dashboard',
+    title: 'Статистика',
+    description: 'Статистика',
     link: '/dashboard',
     linkRoot: '/dashboard',
     icon: 'dashboard',
