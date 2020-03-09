@@ -4,6 +4,11 @@ import {
   Inject
 } from '@angular/core';
 import { DATA } from '@shared/popover/popover.component';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'app-create-block-modal',
@@ -14,6 +19,7 @@ export class CreateBlockModalComponent implements OnInit {
 
   constructor(
     @Inject(DATA) private data,
+    private _formBuilder: FormBuilder,
   ) { }
 
   ngOnInit(): void {

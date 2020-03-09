@@ -9,7 +9,7 @@ import { BASE_ICONS_LIST } from '@shared/material/material-icons/base-icons-list
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '@shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { DatabaseModule } from '@app/database/database.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     SharedModule,
     BrowserAnimationsModule,
+    DatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -31,6 +32,6 @@ export class AppModule {
   ) {
     this.materialIconsService.setIconsRootPath('assets/img');
     this.materialIconsService.addIcons(BASE_ICONS_LIST);
-    registerLocaleData(localeRu, 'ru-RU');
+    registerLocaleData(localeRu);
   }
 }

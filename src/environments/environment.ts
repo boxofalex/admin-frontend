@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyDr7tEr3v4HMNDJU8w71yNprH0vu-dV9tM',
+    authDomain: 'orange-store-270612.firebaseapp.com',
+    databaseURL: 'https://orange-store-270612.firebaseio.com',
+    projectId: 'orange-store-270612',
+    storageBucket: 'orange-store-270612.appspot.com',
+    messagingSenderId: '736028888993',
+    appId: '1:736028888993:web:4c4683dcea1c456baf85e0'
+  },
 };
 
 /*

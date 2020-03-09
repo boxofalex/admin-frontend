@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { MainMenuComponent } from './main-menu/main-menu.component';
-import { SharedModule } from '@shared/shared.module';
 import { AccountMenuComponent } from './account-menu/account-menu.component';
+import { UiModule } from '@ui/ui.module';
 
 const components = [
   HeaderComponent,
@@ -15,7 +15,7 @@ const components = [
     ...components,
   ],
   imports: [
-    SharedModule,
+    UiModule,
   ],
   exports: [
     ...components,

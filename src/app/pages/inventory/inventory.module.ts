@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InventoryComponent } from './inventory.component';
 import { InventoryRoutingModule } from './inventory-routing.module';
+import { UiModule } from '@ui/ui.module';
 
 const components = [
   InventoryComponent
@@ -12,7 +13,7 @@ const components = [
     ...components,
   ],
   imports: [
-    CommonModule,
+    UiModule,
     InventoryRoutingModule,
   ]
 })

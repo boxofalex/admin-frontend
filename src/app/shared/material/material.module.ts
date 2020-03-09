@@ -4,6 +4,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CdkStepperModule } from '@angular/cdk/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 
 const MATERIAL_MODULES = [
   MatIconModule,
@@ -11,6 +13,8 @@ const MATERIAL_MODULES = [
   MatButtonModule,
   OverlayModule,
   DragDropModule,
+  CdkStepperModule,
+  MatStepperModule,
 ];
 
 @NgModule({

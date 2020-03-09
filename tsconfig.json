@@ -8,6 +8,7 @@
       "@assets/*": ["src/assets/*"],
       "@shared/*": ["src/app/shared/*"],
       "@main/*": ["src/app/main/*"],
+      "@ui/*": ["src/app/ui/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

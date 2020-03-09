@@ -26,4 +26,8 @@ export class TypeHelper {
   public static isString(value): boolean {
     return typeof value === 'string' || value instanceof String;
   }
+
+  public static isArray(value: any): boolean {
+    return Array.isArray(value);
+  }
 }
