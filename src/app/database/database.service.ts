@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from '@app/firebase/firebase.service';
 import { Observable } from 'rxjs';
-import { Product } from '@app/models';
+import {
+  Product,
+  DashboardBlockItem,
+} from '@app/models';
 import { map } from 'rxjs/operators';
 import { QueryItem } from '@app/database';
 
@@ -26,5 +29,13 @@ export class DatabaseService {
 
   getCategories(queries: QueryItem[] = []): Observable<any> {
     return this.firebaseService.getDocumentsFromCollection('categories', queries);
+  }
+
+  addBlockToDashboard(values) {
+    return this.firebaseService.addDocumentToCollection('dashboard', values);
+  }
+
+  getDashboardData() {
+    return this.firebaseService.getDocumentsFromCollection('dashboard', []).pipe(map(data => data.map(block => new DashboardBlockItem(block))));
   }
 }

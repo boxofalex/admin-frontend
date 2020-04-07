@@ -1,0 +1,46 @@
+<div class="calendar p-x-1" [ngClass]="{'left': side === 'left'}">
+  <div class="calendar-table">
+    <table class="date-table" *ngIf="calendarData">
+      <thead class="date-table__head">
+        <tr>
+          <th colspan="3" class="text--align-left">
+            <span class="text--bold color--light-black text--xs p-l-2">
+              {{ date?.format("LL") }}
+            </span>
+          </th>
+          <th colspan="3" class="text--align-right">
+            <span class="text--bold color--light-black text--xs p-r-2 text--align-right">
+              {{ locale.monthNames[calendarData?.calendar[1][1].month()]}}
+              {{ calendarData?.calendar[1][1].year() }}
+            </span>
+          </th>
+          <th class="prev-next">
+            <div class="prev-next__arrows d-flex flex-justify-content--space-between p-r-1">
+              <button class="color--light-black" mat-icon-button [disableRipple]="true" (click)="clickPrev()">
+                <mat-icon svgIcon="arrow-left" size="0.5"></mat-icon>
+              </button>
+              <button class="color--light-black" mat-icon-button [disableRipple]="true" (click)="clickNext()">
+                <mat-icon svgIcon="arrow-right" size="0.5"></mat-icon>
+              </button>
+            </div>
+          </th>
+        </tr>
+        <tr class="date-table__head__week text--bold text--align-center text--xs color--light-black">
+          <th *ngFor="let dayofweek of locale.daysOfWeek">
+            <span>{{ dayofweek | titlecase }}</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="date-table__body">
+        <tr *ngFor="let row of calendarData?.calRows" [class]="calendarData?.classes[row].classList">
+          <td *ngFor="let col of calendarData?.calCols" [class]="calendarData?.classes[row][col]"
+            (click)="clickDate($event, row, col)">
+            <span>
+              {{ calendarData?.calendar[row][col].date() }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

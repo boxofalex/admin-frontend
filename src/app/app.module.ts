@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '@shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatabaseModule } from '@app/database/database.module';
+import { ChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -21,6 +23,7 @@ import { DatabaseModule } from '@app/database/database.module';
     SharedModule,
     BrowserAnimationsModule,
     DatabaseModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

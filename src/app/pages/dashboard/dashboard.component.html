@@ -1,26 +1,50 @@
-<div class="page-container">
+<div class="page-container p-3">
   <div class="page-title">
-    <span>
+    <h2 class="h2">
       Статистика #1
-    </span>
+    </h2>
   </div>
   <div class="page-body" cdkDropListGroup>
     <div class="blocks-container" cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="leftColumnData">
-      <div class="add-element" *ngFor="let item of leftColumnData" [cdkDragData]="item" cdkDrag>
-        <div class="add-element__placeholder" *cdkDragPlaceholder></div>
-        <button class="add-element__btn" mat-icon-button disableRipple (click)="openCreateBlockModal()">
-          <mat-icon size="4" [svgIcon]="'add_circle'"></mat-icon>
-        </button>
-      </div>
+      <ng-container *ngFor="let item of leftColumnData">
+        <ng-template [ngIf]="item === 'add'">
+          <div class="add-element" [cdkDragData]="item" cdkDrag>
+            <div class="add-element__placeholder" *cdkDragPlaceholder></div>
+            <button class="add-element__btn" mat-icon-button disableRipple
+              (click)="openCreateBlockModal(createBlockTpl)">
+              <mat-icon size="4" [svgIcon]="'add_circle'"></mat-icon>
+            </button>
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="item !== 'add'">
+          <div class="block-element" [cdkDragData]="item" cdkDrag>
+            <div class="add-element__placeholder" *cdkDragPlaceholder></div>
+            <app-dashboard-block [block]="item"></app-dashboard-block>
+          </div>
+        </ng-template>
+      </ng-container>
     </div>
     <div class="blocks-container" cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListData]="rightColumnData">
-      <div class="add-element" *ngFor="let item of rightColumnData" [cdkDragData]="item" cdkDrag>
-        <div class="add-element__placeholder" *cdkDragPlaceholder></div>
-        <button class="add-element__btn" mat-icon-button disableRipple (click)="openCreateBlockModal()">
-          <mat-icon size="4" [svgIcon]="'add_circle'"></mat-icon>
-        </button>
-        <span class="add-element__title"> Добавить блок</span>
-      </div>
+      <ng-container *ngFor="let item of rightColumnData">
+        <ng-template [ngIf]="item === 'add'">
+          <div class="add-element" [cdkDragData]="item" cdkDrag>
+            <div class="add-element__placeholder" *cdkDragPlaceholder></div>
+            <button class="add-element__btn" mat-icon-button disableRipple
+              (click)="openCreateBlockModal(createBlockTpl)">
+              <mat-icon size="4" [svgIcon]="'add_circle'"></mat-icon>
+            </button>
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="item !== 'add'">
+          <div class="block-element" [cdkDragData]="item" cdkDrag>
+            <div class="add-element__placeholder" *cdkDragPlaceholder></div>
+            <app-dashboard-block [block]="item"></app-dashboard-block>
+          </div>
+        </ng-template>
+      </ng-container>
     </div>
   </div>
 </div>
+<ng-template #createBlockTpl let-close="close">
+  <app-create-block-modal [close]="close" (blockselected)="createBlock($event)"></app-create-block-modal>
+</ng-template>

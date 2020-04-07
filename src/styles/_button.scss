@@ -1,0 +1,25 @@
+@import "~src/variables&mixins.scss";
+
+.button {
+  &--primary {
+    color: $mainWhite;
+    background-color: $mainPrimary;
+  }
+
+  &--accent {
+    color: $mainWhite;
+    background-color: $mainAccent;
+  }
+
+  &--accent-color {
+    color: $mainAccent;
+  }
+
+  &--round-corners {
+    border-radius: 1.25rem !important;
+  }
+}
+
+.button[disabled] {
+  background-color: rgba(0, 0, 0, 0.26);
+}

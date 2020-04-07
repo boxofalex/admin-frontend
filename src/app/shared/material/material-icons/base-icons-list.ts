@@ -8,4 +8,10 @@ export const BASE_ICONS_LIST = [
   { name: 'account_circle', src: 'account_circle.svg' },
   { name: 'add_circle', src: 'add_circle.svg' },
   { name: 'close', src: 'close.svg' },
+  { name: 'create', src: 'create.svg' },
+  { name: 'date-range', src: 'date-range.svg' },
+  { name: 'arrow-left', src: 'arrow-left.svg' },
+  { name: 'arrow-right', src: 'arrow-right.svg' },
+  { name: 'arrow-up', src: 'arrow-up.svg' },
+  { name: 'arrow-down', src: 'arrow-down.svg' },
 ] as IMaterialIcon[];

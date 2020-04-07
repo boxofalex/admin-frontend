@@ -33,6 +33,10 @@ export class FirebaseQuery extends Query {
             const [value] = currentValue;
             createdQuery = createdQuery.startAt(value);
           }
+          if (key === 'endAt') {
+            const [value] = currentValue;
+            createdQuery = createdQuery.endAt(value);
+          }
         });
         return createdQuery;
       };

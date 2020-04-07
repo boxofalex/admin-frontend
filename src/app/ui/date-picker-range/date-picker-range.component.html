@@ -1,0 +1,22 @@
+<div #pickerContainer [ngClass]="{ inline: inline, double: !singleDatePicker}"
+  class="container p-t-3 p-x-3 bg-color--white">
+  <div class="container__body d-flex flex-justify-content--center flex-align-items--center">
+    <app-calendar [side]="sideEnum.left" [date]="_startDate" [calendarData]="calendarVariables?.left" [locale]="locale"
+      (clickprev)="clickPrev($event)" (clicknext)="clickNext($event)" (clickdate)="clickDate($event)">
+    </app-calendar>
+    <app-calendar [side]="sideEnum.right" [date]="_endDate" [calendarData]="calendarVariables?.right" [locale]="locale"
+      (clickprev)="clickPrev($event)" (clicknext)="clickNext($event)" (clickdate)="clickDate($event)">
+    </app-calendar>
+  </div>
+  <div class="container__actions m-0 p-b-4 pos-r">
+    <div class="buttons d-flex flex-justify-content--end flex-align-items--center" *ngIf="!autoApply">
+      <button class="button button--accent-color m-r-2" mat-flat-button type="button" (click)="clickCancel($event)">
+        Назад
+      </button>
+      <button class="button button--accent button--round-corners" mat-flat-button type="button"
+        (click)="clickApply($event)">
+        Добавить
+      </button>
+    </div>
+  </div>
+</div>

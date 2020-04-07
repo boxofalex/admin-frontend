@@ -3,26 +3,23 @@
 .create-block {
   width: 35rem;
   height: 25em;
-  background-color: $mainWhite;
   border-radius: 1rem;
-  padding: 1rem;
-  position: relative;
 
   &__title {
     height: 2rem;
-    font-size: 1.2rem;
     @include flexContainer(row nowrap, center, center);
   }
 
   &__body {
     height: calc(100% - 2rem);
-    padding: 1rem 0 0 0;
   }
 }
 
+::ng-deep .create-block .material-icons {
+  font-family: "Material Icons";
+}
+
 .close-btn {
-  position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  color: $mainAccent;
 }

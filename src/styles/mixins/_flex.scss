@@ -41,3 +41,56 @@ $alignSelf: number = 0
     order: $order;
   }
 }
+
+.d-flex {
+  display: flex;
+}
+
+.flex {
+  &-direction {
+    &--row {
+      flex-direction: row;
+    }
+
+    &--column {
+      flex-direction: column;
+    }
+  }
+
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &-justify-content {
+    &--start {
+      justify-content: flex-start;
+    }
+    &--end {
+      justify-content: flex-end;
+    }
+    &--center {
+      justify-content: center;
+    }
+    &--stretch {
+      justify-content: stretch;
+    }
+    &--space-between {
+      justify-content: space-between;
+    }
+  }
+
+  &-align-items {
+    &--start {
+      align-items: flex-start;
+    }
+    &--end {
+      align-items: flex-end;
+    }
+    &--center {
+      align-items: center;
+    }
+    &--stretch {
+      align-items: stretch;
+    }
+  }
+}

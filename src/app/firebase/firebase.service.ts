@@ -31,6 +31,10 @@ export class FirebaseService {
     );
   }
 
+  addDocumentToCollection(collectionName: string, value) {
+    return this.firestore.collection(collectionName).add(value);
+  }
+
   handleQuerySnapshot(querySnapshot: QuerySnapshot<any>) {
     const arrayOfData = [];
     querySnapshot.forEach((doc: QueryDocumentSnapshot<any>) => {

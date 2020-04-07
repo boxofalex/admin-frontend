@@ -4,3 +4,38 @@ $mainAccent: #9d445f;
 $mainWhite: #ffffff;
 $darkWhite: #eeeeee;
 $mainBlack: #222222;
+$lightBlack: rgba($mainBlack, 0.6);
+$lightestBlack: rgba($mainBlack, 0.25);
+
+.color {
+  &--primary {
+    color: $mainPrimary !important;
+  }
+  &--white {
+    color: $mainWhite !important;
+  }
+  &--accent {
+    color: $mainAccent !important;
+  }
+  &--black {
+    color: $mainBlack !important;
+  }
+  &--light-black {
+    color: $lightBlack !important;
+  }
+}
+
+.bg-color {
+  &--primary {
+    background-color: $mainPrimary !important;
+  }
+  &--white {
+    background-color: $mainWhite !important;
+  }
+  &--accent {
+    background-color: $mainAccent !important;
+  }
+  &--black {
+    background-color: $mainBlack !important;
+  }
+}

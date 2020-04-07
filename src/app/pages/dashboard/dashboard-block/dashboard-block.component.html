@@ -1,0 +1,4 @@
+<ng-template [ngIf]="block?.format === 'chart' && data">
+  <app-chart [dataset]="data?.dataSet" [labels]="data?.labels" [legend]="data?.legend" [options]="data?.options"
+    [plugins]="data?.plugins" [type]="data?.type"></app-chart>
+</ng-template>

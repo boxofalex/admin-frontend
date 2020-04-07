@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <div class="container" [ngClass]="{
+      'container--top': indicatorPosition?.originY === 'top' && indicatorPosition?.originX === 'center',
+      'container--bottom': indicatorPosition?.originY === 'bottom' &&indicatorPosition?.originX === 'center',
+      'container--right': indicatorPosition?.originY === 'top' &&indicatorPosition?.originX === 'end',
+      'container--left': indicatorPosition?.originY === 'top' &&indicatorPosition?.originX === 'start'
+    }">
+    <ng-content></ng-content>
+  </div>
+</div>

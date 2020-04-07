@@ -2,6 +2,7 @@ import {
   Component,
   OnInit,
   OnDestroy,
+  TemplateRef,
 } from '@angular/core';
 import {
   CdkDragDrop,
@@ -30,8 +31,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.dashboardService.data$.subscribe(
         data => {
-          ArrayHelper.forEach(data, (item, index) => {
-            if (index === 0 || (index % 2) !== 0) {
+          this.leftColumnData = [];
+          this.rightColumnData = [];
+          const preparedData = [...data, 'add'];
+          ArrayHelper.forEach(preparedData, (item, index) => {
+            if ((index % 2) === 0) {
               this.leftColumnData.push(item);
             } else {
               this.rightColumnData.push(item);
@@ -40,6 +44,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         }
       )
     );
+    this.dashboardService.getBlocks();
   }
 
   ngOnDestroy() {
@@ -57,7 +62,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   }
 
-  openCreateBlockModal() {
-    this.dashboardService.openCreateBlockModal();
+  openCreateBlockModal(tmp: TemplateRef<any>) {
+    this.dashboardService.openCreateBlockModal(tmp);
+  }
+
+  createBlock(values: { [key: string]: any }) {
+    this.dashboardService.createBlock(values);
   }
 }

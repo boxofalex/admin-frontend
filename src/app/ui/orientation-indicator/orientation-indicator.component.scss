@@ -1,0 +1,92 @@
+@import "~src/variables&mixins.scss";
+
+.wrapper {
+  background-color: transparent;
+  box-shadow: none;
+  margin: 0;
+  padding: 1px;
+}
+
+.container {
+  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+}
+
+.container--top {
+  margin: 0 0 20px 0;
+}
+
+.container--top::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: -9px;
+  bottom: 11px;
+  left: 50%;
+  box-sizing: border-box;
+  border: 10px solid black;
+  border-color: transparent transparent $mainWhite $mainWhite;
+  transform-origin: center center;
+  transform: rotate(-45deg);
+  box-shadow: -3px 3px 3px 0 rgba(0, 0, 0, 0.16);
+}
+
+.container--bottom {
+  margin: 20px 0 0 0;
+}
+
+.container--bottom::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: -9px;
+  top: 11px;
+  left: 50%;
+  box-sizing: border-box;
+  border: 10px solid black;
+  border-color: $mainWhite $mainWhite transparent transparent;
+  transform-origin: center center;
+  transform: rotate(-45deg);
+  box-shadow: 1px -1px 1px 0 rgba(0, 0, 0, 0.16);
+}
+
+.container--right {
+  margin: 0 0 0 20px;
+}
+
+.container--right::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: 11px;
+  top: 5px;
+  left: 0;
+  box-sizing: border-box;
+  border: 10px solid black;
+  border-color: $mainWhite $mainWhite transparent transparent;
+  transform-origin: center center;
+  transform: rotate(-135deg);
+  box-shadow: 2px -2px 3px 0 rgba(0, 0, 0, 0.16);
+}
+
+.container--left {
+  margin: 0 20px 0 0;
+}
+
+.container--left::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin-left: -32px;
+  top: 4px;
+  left: 100%;
+  box-sizing: border-box;
+  border: 10px solid black;
+  border-color: $mainWhite $mainWhite transparent transparent;
+  transform-origin: center center;
+  transform: rotate(45deg);
+  box-shadow: 2px -2px 3px 0 rgba(0, 0, 0, 0.16);
+}

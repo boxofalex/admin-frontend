@@ -86,7 +86,7 @@ export class DataService {
     const productQuantity = NumberHelper.randomIntFromInterval(PRODUCTS_RANGE.min, PRODUCTS_RANGE.max);
     const orderItemAmount = product.price * productQuantity;
     const orderItemTemplate = {
-      product: product.product,
+      product: product.id,
       quantity: productQuantity,
       amount: orderItemAmount,
     };

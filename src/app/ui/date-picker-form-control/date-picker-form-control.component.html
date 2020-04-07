@@ -1,0 +1,13 @@
+<div class="control-form d-flex flex-justify-content--space-between flex-align-items--center">
+  <input [placeholder]="placeholder" class="text--s" [formControl]="date" (click)="show(tpl, origin)" disabled />
+  <button class="calendar-toogler color--light-black" mat-icon-button (click)="show(tpl, origin)" #origin>
+    <mat-icon svgIcon="date-range" size="16"></mat-icon>
+  </button>
+  <ng-template #tpl let-close="close" let-positionStrategy$="positionStrategy$">
+    <app-orientation-indicator [position]="positionStrategy$">
+      <app-date-picker-range (datesUpdated)="onNewDatedSelected($event)" (canceled)="cancel()"
+        [startDate]="value.startDate" [endDate]="value.endDate">
+      </app-date-picker-range>
+    </app-orientation-indicator>
+  </ng-template>
+</div>

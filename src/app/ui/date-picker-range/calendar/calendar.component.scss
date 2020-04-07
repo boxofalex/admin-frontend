@@ -1,0 +1,93 @@
+@import "~src/variables&mixins.scss";
+
+.calendar.left {
+  border-right: 0.1rem solid rgba($mainBlack, 0.1);
+}
+
+.date-table {
+  border-spacing: 0 0.3125rem;
+
+  & th,
+  td {
+    height: 1.8rem;
+    padding: 0;
+    font-weight: normal;
+  }
+
+  &__body {
+    font-family: GraphikLCG-Medium;
+    font-size: 0.6rem;
+    color: #222222;
+    text-align: center;
+
+    & td {
+      width: 2.1rem;
+      & span {
+        display: inline-block;
+        width: 2.1rem;
+      }
+    }
+  }
+}
+
+.prev-next__arrows {
+  & button {
+    width: 0.75rem;
+    height: 0.75rem;
+    line-height: 0.75rem;
+  }
+}
+
+.off {
+  color: $mainWhite;
+  background-color: $mainWhite;
+}
+
+.off.in-range {
+  background-color: $mainWhite;
+}
+
+.active.start-date {
+  background-color: $mainAccent;
+  color: white;
+  border-radius: 0.9375rem 0 0 0.9375rem;
+}
+
+.active.start-date.off {
+  color: $mainWhite;
+  background-color: $mainWhite;
+}
+
+.active.end-date {
+  background-color: $mainAccent;
+  color: white;
+  border-radius: 0 0.9375rem 0.9375rem 0;
+}
+
+.active.end-date.off {
+  color: $mainWhite;
+  background-color: $mainWhite;
+}
+
+.active.start-date.end-date {
+  background-color: $mainAccent;
+  color: white;
+  border-radius: 0;
+}
+
+.active.start-date.end-date.off {
+  color: $mainWhite;
+  background-color: $mainWhite;
+}
+
+.in-range {
+  background-color: $lightestBlack;
+}
+
+.first-in-row.in-range {
+  border-radius: 0.9375rem 0 0 0.9375rem;
+}
+
+.last-in-row.in-range {
+  border-radius: 0 0.9375rem 0.9375rem 0;
+}

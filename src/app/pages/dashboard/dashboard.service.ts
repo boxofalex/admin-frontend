@@ -1,11 +1,17 @@
-import { Injectable } from '@angular/core';
+import {
+  Injectable,
+  TemplateRef,
+} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import {
   Popover,
   PopoverClasses,
   PopoverControl,
 } from '@shared/popover/popover.service';
-import { CreateBlockModalComponent } from '@app/pages/dashboard/create-block-modal/create-block-modal.component';
+import { DatabaseService } from '@app/database/database.service';
+import {
+  HttpErrorResponse
+} from '@angular/common/http';
 
 const dashboard = {
   data: ['red'],
@@ -15,7 +21,7 @@ const dashboard = {
   providedIn: 'root'
 })
 export class DashboardService {
-  private _DATA$ = new BehaviorSubject(dashboard.data);
+  private _DATA$ = new BehaviorSubject([]);
   public readonly data$ = this._DATA$.asObservable();
 
   get data() {
@@ -29,12 +35,29 @@ export class DashboardService {
 
   constructor(
     private popoverService: Popover,
+    private databaseService: DatabaseService,
   ) { }
 
-  openCreateBlockModal(): void {
+  createBlock(values: { [key: string]: any }) {
+    this.databaseService.addBlockToDashboard({ ...values, name: '' }).then(response => {
+      this.getBlocks();
+    });
+  }
+
+  getBlocks() {
+    this.databaseService.getDashboardData().subscribe(
+      response => {
+        if (response instanceof HttpErrorResponse) {
+        } else {
+          this.data = response;
+        }
+      });
+  }
+
+  openCreateBlockModal(tmp: TemplateRef<any>): void {
     this.createBlockModalRef = this.popoverService.open<any>(
       {
-        content: CreateBlockModalComponent,
+        content: tmp,
         origin: null,
         data: null,
         minWidth: null,
